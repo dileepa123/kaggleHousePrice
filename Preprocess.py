@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 # Read the data
 X_full = pd.read_csv('train.csv', index_col='Id')
@@ -27,6 +28,13 @@ numerical_cols = [cname for cname in X_train_full.columns if
 
 # Keep selected columns only
 my_cols = categorical_cols + numerical_cols
+X_full = X_full[my_cols].copy()
 X_train = X_train_full[my_cols].copy()
 X_valid = X_valid_full[my_cols].copy()
 X_test = X_test_full[my_cols].copy()
+
+# df_family_sale = y[X_full['SaleCondition']=='Family']
+# df_family_sale.hist()
+# plt.show()
+# y.hist()
+# plt.show()
